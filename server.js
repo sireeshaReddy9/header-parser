@@ -20,10 +20,8 @@ app.get("/api/whoami", (req, res) => {
 const xff = req.headers["x-forwarded-for"]; 
 const ip = (xff || req.ip || "").toString().split(",")[0].trim();
 
-
 const language = req.headers["accept-language"] || "";
 const software = req.headers["user-agent"] || "";
-
 
 res.json({
 ipaddress: ip,
@@ -31,7 +29,6 @@ language,
 software,
 });
 });
-
 
 app.listen(PORT, () => {
 console.log(`\nRequest Header Parser listening on http://localhost:${PORT}`);
